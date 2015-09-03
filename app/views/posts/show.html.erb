@@ -11,5 +11,18 @@
   <% end %>
 </ul>
 
+<ul>
+  <% @post.comments.each do |c| %>
+    <li><%= c.content %></li>
+  <% end %>
+</ul>
+
+<h3>Add a comment:</h3>
+<%= form_for @post do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.submit "Create Comment" %>
+<% end %>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
